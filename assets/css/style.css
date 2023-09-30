@@ -45,6 +45,7 @@ html {
     align-items: center;
     padding: 0 0 0 20px;
     justify-content: space-between;
+    z-index: 1;
 }
 .banner ul{
     list-style: none;
@@ -77,6 +78,7 @@ html {
     transition: 0.3s;
     opacity: 0; 
     bottom: -3px;
+
 }
 .banner ul li:hover::after{
     width: 100%;
@@ -96,14 +98,120 @@ html {
     height: 100vh;
     align-items: center;
     justify-content: center;
+    position: relative;
+    top: -40px;
 }
 .information h1 {
-    font-size: 55px;
-    font-family: "Inconsolata", sans-serif;
-    font-weight: 600;
+    font-size: 50px;
+    font-family: "Roboto Slab", sans-serif;
     position: relative;
     text-align: center;
-    overflow: hidden;   
-    top: -35px;
 }
 
+.information h1::before,
+.information h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #fff; 
+    transition: width 0.65s ease-in-out;
+}
+
+.information h1::before {
+    right: 50%;
+}
+
+.information h1::after {
+    left: 50%;
+}
+
+.information h1:hover::before,
+.information h1:hover::after {
+    width: 80%;
+}
+
+.information p{
+    padding: 25px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.footer p {
+    font-size: 15px;
+    color: white;
+    opacity: 0.5;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+/* .button-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.link{
+    font-size: 18px;
+    border: 2px solid white;
+    padding: 15px 35px 15px 35px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.link:hover{
+    background-color: rgb(255, 72, 0);
+    border: 2px solid rgb(255, 72, 0);
+    transition: 1s;
+} */
+
+@media (max-width:680px){
+    .information h1{
+        font-size: 35px;
+    }
+    .information p{
+        font-size: 16px;
+    }
+    .footer p{
+        font-size: 13px;
+    }
+}
+@media (max-width:600px){
+    .information h1{
+        font-size: 30px;
+    }
+    .information p{
+        font-size: 13px;
+    }
+    .footer p{
+        font-size: 12px;
+    }
+    .banner ul{
+        display: none;
+    }
+    .logo{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        left: -33px;
+    }
+}
+
+@media (max-width:370px){
+    .information h1{
+        font-size: 25px;
+    }
+    .information p{
+        font-size: 13px;
+    }
+    .footer p{
+        font-size: 12px;
+    }
+}
